@@ -1,0 +1,11 @@
+.quote-block {
+    display: flex;
+    width: 600px;
+}
+
+.quote-block__bar {
+    margin-right: 80px;
+    flex-shrink: 0;
+    width: 8px;
+    background-color: #F7DF94;
+}

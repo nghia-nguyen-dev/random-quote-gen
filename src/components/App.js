@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RefreshIcon from "assets/icons/refresh-icon.svg";
 import * as R from "ramda";
 import QuoteBlock from "components/QuoteBlock";
+import QuoteList from "components/QuoteList";
 
 const getRandomQuote = (setter) => {
 	return fetch(`https://quote-garden.herokuapp.com/api/v3/quotes/random`)
@@ -18,7 +19,7 @@ const getQuotesByAuthor = (setter, name) => {
 		`https://quote-garden.herokuapp.com/api/v3/quotes?author=${firstName}+${lastName}`
 	)
 		.then((res) => res.json())
-		.then((data) => setter(data));
+		.then(({ data }) => setter(data));
 };
 
 export default () => {
@@ -26,9 +27,9 @@ export default () => {
 	const [quoteList, setQuoteList] = useState([]);
 
 	useEffect(() => {
-		console.log(`useEffect`);
-		getRandomQuote(setMainQuote)
-            .then((author) => getQuotesByAuthor(setQuoteList, author));
+		getRandomQuote(setMainQuote).then((author) =>
+			getQuotesByAuthor(setQuoteList, author)
+		);
 	}, []);
 
 	return (
@@ -42,6 +43,7 @@ export default () => {
 				<h2>{mainQuote.quoteAuthor}</h2>
 				<p>{mainQuote.quoteGenre}</p>
 			</div>
+			<QuoteList quoteList={quoteList} />
 		</div>
 	);
 };
