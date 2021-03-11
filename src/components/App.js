@@ -1,14 +1,15 @@
-export default () => {
-	console.log(object);
+import RefreshIcon from 'assets/icons/refresh-icon.svg'
+
+export default () => { 
 	return (
 		<div className="app">
 			<div className="randomizer">
 				<p>Random</p>
-				<svg>icon</svg>
+				<img src={RefreshIcon}/>
 			</div>
 			<div className="quote">
 				<div></div>
-				<p>Some kind of random quote text</p>
+				<h1>Some kind of random quote text</h1>
 			</div>
 			<div className="author">
 				<h2>Author's name</h2>
