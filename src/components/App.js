@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import RefreshIcon from "assets/icons/refresh-icon.svg";
 import QuoteBlock from "components/QuoteBlock";
 import QuoteList from "components/QuoteList";
-import fetchData from "utils/fetchData";
+import { fetchData } from "utils/helpers";
 
 export default () => {
 	const [mainQuote, setMainQuote] = useState([{}]);

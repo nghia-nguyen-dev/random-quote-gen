@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import QuoteBlock from "components/QuoteBlock";
-import fetchData from "utils/fetchData";
-import * as R from "ramda";
+import { fetchData, buildQueryStr } from "utils/helpers";
 
-const buildQueryString = ({first, last}) => {
-	return `https://quote-garden.herokuapp.com/api/v3/quotes?author=${first}+${last}`;
-};
+import * as R from "ramda";
 
 export default ({ mainQuote }) => {
 	const [quotes, setQuotes] = useState([]);
@@ -15,14 +12,14 @@ export default ({ mainQuote }) => {
 			const url = R.pipe(
 				R.prop("quoteAuthor"),
 				R.split(" "),
-				buildQueryString
+				buildQueryStr
 			)(mainQuote);
 			fetchData(setQuotes, url);
 		}
 	}, [mainQuote]);
 
 	const quoteList = quotes.map(({ quoteText, _id }) => {
-		return <QuoteBlock text={quoteText} key={_id}/>;
+		return <QuoteBlock text={quoteText} key={_id} />;
 	});
 
 	return <ul className="quote-list">{quoteList}</ul>;
