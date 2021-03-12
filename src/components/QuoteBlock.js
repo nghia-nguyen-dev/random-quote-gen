@@ -1,4 +1,4 @@
-export default ({text}) => {
+export default ({ text }) => {
 	return (
 		<li className="quote-block">
 			<div className="quote-block__bar"></div>

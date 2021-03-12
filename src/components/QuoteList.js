@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import QuoteBlock from "components/QuoteBlock";
 import { fetchData, buildQueryStr } from "utils/helpers";
-
 import * as R from "ramda";
 
 export default ({ mainQuote }) => {

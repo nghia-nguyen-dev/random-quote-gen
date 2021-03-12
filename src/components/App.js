@@ -5,13 +5,17 @@ import QuoteBlock from "components/QuoteBlock";
 import QuoteList from "components/QuoteList";
 import { fetchData } from "utils/helpers";
 
+const config = {
+    URL: `https://quote-garden.herokuapp.com/api/v3/quotes/random`,
+}
+
 export default () => {
 	const [mainQuote, setMainQuote] = useState([{}]);
 
 	useEffect(() => {
 		fetchData(
 			setMainQuote,
-			`https://quote-garden.herokuapp.com/api/v3/quotes/random`
+			config.URL
 		);
 	}, []);
 
