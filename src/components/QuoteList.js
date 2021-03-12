@@ -21,9 +21,9 @@ export default ({ mainQuote }) => {
 		}
 	}, [mainQuote]);
 
-	const quoteList = quotes.map(({ quoteText }) => {
-		return <QuoteBlock text={quoteText} />;
+	const quoteList = quotes.map(({ quoteText, _id }) => {
+		return <QuoteBlock text={quoteText} key={_id}/>;
 	});
 
-	return <div className="quote-list">{quoteList}</div>;
+	return <ul className="quote-list">{quoteList}</ul>;
 };
