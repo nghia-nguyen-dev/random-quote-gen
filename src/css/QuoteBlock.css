@@ -1,6 +1,7 @@
 .quote-block {
     display: flex;
     width: 600px;
+    margin-bottom: 140px;
 }
 
 .quote-block__bar {

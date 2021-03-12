@@ -1,34 +1,17 @@
+import * as R from "ramda";
 import { useState, useEffect } from "react";
 import RefreshIcon from "assets/icons/refresh-icon.svg";
-import * as R from "ramda";
 import QuoteBlock from "components/QuoteBlock";
 import QuoteList from "components/QuoteList";
-
-const getRandomQuote = (setter) => {
-	return fetch(`https://quote-garden.herokuapp.com/api/v3/quotes/random`)
-		.then((res) => res.json())
-		.then(({ data }) => {
-			setter(data[0]);
-			return data[0].quoteAuthor;
-		});
-};
-
-const getQuotesByAuthor = (setter, name) => {
-	const [firstName, lastName] = name.split(" ");
-	fetch(
-		`https://quote-garden.herokuapp.com/api/v3/quotes?author=${firstName}+${lastName}`
-	)
-		.then((res) => res.json())
-		.then(({ data }) => setter(data));
-};
+import fetchData from "utils/fetchData";
 
 export default () => {
-	const [mainQuote, setMainQuote] = useState({});
-	const [quoteList, setQuoteList] = useState([]);
+	const [mainQuote, setMainQuote] = useState([{}]);
 
 	useEffect(() => {
-		getRandomQuote(setMainQuote).then((author) =>
-			getQuotesByAuthor(setQuoteList, author)
+		fetchData(
+			setMainQuote,
+			`https://quote-garden.herokuapp.com/api/v3/quotes/random`
 		);
 	}, []);
 
@@ -38,12 +21,12 @@ export default () => {
 				<p>Random</p>
 				<img src={RefreshIcon} />
 			</div>
-			<QuoteBlock text={mainQuote.quoteText} />
+			<QuoteBlock text={mainQuote[0].quoteText} />
 			<div className="author">
-				<h2>{mainQuote.quoteAuthor}</h2>
-				<p>{mainQuote.quoteGenre}</p>
+				<h2>{mainQuote[0].quoteAuthor}</h2>
+				<p>{mainQuote[0].quoteGenre}</p>
 			</div>
-			<QuoteList quoteList={quoteList} />
+			<QuoteList mainQuote={mainQuote[0]} />
 		</div>
 	);
 };
