@@ -3,8 +3,8 @@ import QuoteBlock from "components/QuoteBlock";
 import fetchData from "utils/fetchData";
 import * as R from "ramda";
 
-const buildQueryString = (name) => {
-	return `https://quote-garden.herokuapp.com/api/v3/quotes?author=${name[0]}+${name[1]}`;
+const buildQueryString = ({first, last}) => {
+	return `https://quote-garden.herokuapp.com/api/v3/quotes?author=${first}+${last}`;
 };
 
 export default ({ mainQuote }) => {
