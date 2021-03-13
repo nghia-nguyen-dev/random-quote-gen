@@ -1,0 +1,12 @@
+.info {
+    width: 600px;
+    padding: 50px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info:hover {
+   background-color: #333;
+   color: #f2f2f2;
+}
+

@@ -1,7 +1,10 @@
 .randomizer {
-    display: flex;
+	display: flex;
+	width: max-content;
+	position: fixed;
+	right: 100px;
 }
 
 .randomizer__icon {
-    margin-left: 10px;
+	margin-left: 10px;
 }

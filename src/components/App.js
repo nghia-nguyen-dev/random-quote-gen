@@ -1,9 +1,10 @@
 import * as R from "ramda";
 import { useState, useEffect } from "react";
-import RefreshIcon from "assets/icons/refresh-icon.svg";
+import refreshIcon from "assets/icons/refresh-icon.svg";
 import QuoteBlock from "components/QuoteBlock";
 import QuoteList from "components/QuoteList";
 import { fetchData } from "utils/helpers";
+import rightArrow from "assets/icons/right-arrow.svg";
 
 const config = {
 	URL: `https://quote-garden.herokuapp.com/api/v3/quotes/random`,
@@ -24,9 +25,12 @@ export default () => {
 					<>
 						<QuoteBlock text={mainQuote[0].quoteText} />
 
-						<div className="author" onClick={() => setState(2)}>
-							<h2>{mainQuote[0].quoteAuthor}</h2>
-							<p>{mainQuote[0].quoteGenre}</p>
+						<div className="info" onClick={() => setState(2)}>
+							<div className="info__content">
+								<h2>{mainQuote[0].quoteAuthor}</h2>
+								<p>{mainQuote[0].quoteGenre}</p>
+							</div>
+							<img className="info__icon" src={rightArrow} />
 						</div>
 					</>
 				);
@@ -42,7 +46,7 @@ export default () => {
 				onClick={() => fetchData(setMainQuote, config.URL)}
 			>
 				<p className="randomizer__text">Random</p>
-				<img className="randomizer__icon" src={RefreshIcon} />
+				<img className="randomizer__icon" src={refreshIcon} />
 			</div>
 
 			{renderView()}
