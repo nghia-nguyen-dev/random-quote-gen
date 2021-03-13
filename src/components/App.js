@@ -38,6 +38,7 @@ export default () => {
 						</div>
 					</>
 				);
+
 			case 2:
 				return <Quotes mainQuote={mainQuote[0]} />;
 		}
