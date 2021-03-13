@@ -2,7 +2,7 @@ import * as R from "ramda";
 import { useState, useEffect } from "react";
 import refreshIcon from "assets/icons/refresh-icon.svg";
 import QuoteBlock from "components/QuoteBlock";
-import QuoteList from "components/QuoteList";
+import Quotes from "components/Quotes";
 import { fetchData } from "utils/helpers";
 import rightArrow from "assets/icons/right-arrow.svg";
 
@@ -27,15 +27,19 @@ export default () => {
 
 						<div className="info" onClick={() => setState(2)}>
 							<div className="info__content">
-								<h2>{mainQuote[0].quoteAuthor}</h2>
-								<p>{mainQuote[0].quoteGenre}</p>
+								<p className="info__genre">
+									{mainQuote[0].quoteGenre}
+								</p>
+								<h2 className="info__author">
+									{mainQuote[0].quoteAuthor}
+								</h2>
 							</div>
 							<img className="info__icon" src={rightArrow} />
 						</div>
 					</>
 				);
 			case 2:
-				return <QuoteList mainQuote={mainQuote[0]} />;
+				return <Quotes mainQuote={mainQuote[0]} />;
 		}
 	};
 
@@ -45,7 +49,7 @@ export default () => {
 				className="randomizer"
 				onClick={() => fetchData(setMainQuote, config.URL)}
 			>
-				<p className="randomizer__text">Random</p>
+				<p className="randomizer__text">random</p>
 				<img className="randomizer__icon" src={refreshIcon} />
 			</div>
 

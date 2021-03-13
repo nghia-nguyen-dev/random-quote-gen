@@ -2,9 +2,11 @@
 	display: flex;
 	width: max-content;
 	position: fixed;
-	right: 100px;
+	right: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: .6;
 }
 
 .randomizer__icon {
-	margin-left: 10px;
+	margin-left: 8px;
 }

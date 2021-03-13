@@ -2,6 +2,7 @@
     display: flex;
     width: 600px;
     margin-bottom: 140px;
+    position: relative;
 }
 
 .quote-block__bar {
@@ -9,4 +10,11 @@
     flex-shrink: 0;
     width: 8px;
     background-color: #F7DF94;
+    position: absolute;
+    height: 100%;
+    left: -30px;
+}
+
+.quote-block__text {
+    padding-left: 30px;
 }

@@ -21,5 +21,10 @@ export default ({ mainQuote }) => {
 		return <QuoteBlock text={quoteText} key={_id} />;
 	});
 
-	return <ul className="quote-list">{quoteList}</ul>;
+	return (
+		<div className="quotes">
+			<h2 className="quotes__author">{mainQuote.quoteAuthor}</h2>
+			<ul className="quotes__list">{quoteList}</ul>
+		</div>
+	);
 };
