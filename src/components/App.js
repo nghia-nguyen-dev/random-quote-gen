@@ -41,8 +41,8 @@ export default () => {
 				className="randomizer"
 				onClick={() => fetchData(setMainQuote, config.URL)}
 			>
-				<p>Random</p>
-				<img src={RefreshIcon} />
+				<p className="randomizer__text">Random</p>
+				<img className="randomizer__icon" src={RefreshIcon} />
 			</div>
 
 			{renderView()}
