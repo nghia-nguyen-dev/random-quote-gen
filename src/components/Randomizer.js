@@ -1,3 +1,7 @@
+import refreshIcon from "assets/icons/refresh-icon.svg";
+import config from "utils/config";
+import { fetchData } from "utils/helpers";
+
 export default ({setMainQuote}) => {
     return (
         <div

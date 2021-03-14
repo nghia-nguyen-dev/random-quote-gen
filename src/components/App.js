@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
-import refreshIcon from "assets/icons/refresh-icon.svg";
 import QuoteBlock from "components/QuoteBlock";
 import Quotes from "components/Quotes";
 import { fetchData } from "utils/helpers";
 import Info from "components/Info";
 import Randomizer from "components/Randomizer";
-
-const config = {
-	URL: `https://quote-garden.herokuapp.com/api/v3/quotes/random`,
-};
+import config from "utils/config";
 
 export default () => {
 	const [mainQuote, setMainQuote] = useState([{}]);
@@ -35,7 +31,7 @@ export default () => {
 
 	return (
 		<div className="app">
-			<Randomizer setMainQuote={setMainQuote}/>
+			<Randomizer setMainQuote={setMainQuote} />
 			{renderView()}
 		</div>
 	);
