@@ -1,8 +1,9 @@
 .quote-block {
     display: flex;
-    width: 600px;
+    width: 660px;
     margin-bottom: 140px;
     position: relative;
+    color: hsl(0, 0%, 18%);
 }
 
 .quote-block__bar {
@@ -17,4 +18,6 @@
 
 .quote-block__text {
     padding-left: 30px;
+    letter-spacing: .4px;
+    line-height: 43px;
 }
